@@ -12,6 +12,6 @@ const App = () => {
  
   }, [])
 
-   return mainPage == 'welcome' ? <Welcome onClick={()=>setMainPage('Navigation')} /> : <Navigation />
+   return mainPage === 'welcome' ? <Welcome onClick={()=>setMainPage('Navigation')} /> : <Navigation />
 }
 export default App;

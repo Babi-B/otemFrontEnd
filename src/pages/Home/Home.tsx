@@ -2,16 +2,17 @@ import React, { useEffect } from 'react';
 
 import './Home.css';
 import styles from './Home.styles'
-import { MySlider } from '../../components'
+import { MySlider, ProductCard } from '../../components'
+import { products } from '../../res/data'
 
 interface Props {
 
 }
 const Home: React.FC<Props> = (props) => {
 
-    const handleScroll = () => {
-        alert('Hello')
-    }
+    // const handleScroll = () => {
+    //     alert('Hello')
+    // }
 
     useEffect(() => {
         window.onscroll = function () {
@@ -31,8 +32,8 @@ const Home: React.FC<Props> = (props) => {
                     <span style={styles.titleText}>GET YOURS</span> <br />
                     <h1 style={styles.largeText}>The Leader In Soaps</h1>
                     <h1 style={styles.largeText}>And Stitches.</h1><br />
-                    <span style={styles.smallText}>Here you will find lost of products that</span>
-                    <span style={styles.smallText}>match your taste and that are also good for your health purposes.</span>
+                    <span style={styles.smallText}>Here you will find lots of products that</span>
+                    <span style={styles.smallText}>match your taste and that are also good for health purposes.</span>
                     <span style={styles.smallText}>Trust us as we trust God to give you the best.</span>
                     <div style={{ marginTop: 20 }} className='orderNowBtn'>
                         <span className='orderNowText' style={{ fontSize: 14, fontWeight: 'bold' }}>ORDER NOW</span>
@@ -60,6 +61,16 @@ const Home: React.FC<Props> = (props) => {
                         />
                     </MySlider>
                 </div>
+            </div>
+            <div style={styles.mainView2}>
+                {products.map(product=>(
+                    <ProductCard
+                        key={product.id}
+                        name={product.name}
+                        description={product.description}
+                        available={product.available}
+                    />
+                ))}
             </div>
         </div>
     )
