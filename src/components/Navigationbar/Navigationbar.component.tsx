@@ -7,7 +7,7 @@ import './Navigationbar.css'
 
 const Navigationbar = props => {
     return (
-        <Navbar collapseOnSelect className='sticky-top' style={{ backgroundColor: '#6D214F' }}>
+        <Navbar collapseOnSelect className='mianContainer sticky-top'>
             <Navbar.Brand href="#home">
                 <span className='otemProductText'>OTEMPRODUCTS</span>
             </Navbar.Brand>

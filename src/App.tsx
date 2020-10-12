@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-import { Welcome } from './pages'
-import Navigation from './Navigation/Navigation'
+import { Welcome } from './pages';
+import Navigation from './Navigation/Navigation';
+import { base_url } from './config.json'
+
+globalThis.BASE_URL = base_url;
 
 const App = () => {
 

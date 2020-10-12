@@ -1,0 +1,66 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: tomato;
+}
+.mainView1 {
+    display: flex;
+    width: 100%;
+    height: 450px;
+    align-self: center;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #6D214F;
+}
+.view1 {
+    display: flex;
+    width: 47%;
+    height: 90%;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 10;
+    padding-top: 50;
+}
+.view2 {
+    margin-top: 40;
+    display: flex;
+    width: 40%;
+    height: 90%;
+    align-self: center;
+    align-items: center;
+}
+.titleText {
+    color: #ffffff;
+    font-size: 20;
+    line-height: 0.9;
+    align-self: flex-start;
+    font-family: sans-serif
+}
+.largeText {
+    color: #ffffff;
+    font-weight: bold ;
+    font-size: 60;
+    line-height: 0.9;
+    align-self: flex-start;
+}
+.smallText {
+    color: #ffffff;
+    font-weight: bold ;
+    line-height: 0.9;
+    align-self: flex-start;
+    margin-top: 10px
+}
+.mainView2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 50;
+    margin-bottom: 20;
+    padding-bottom: 20;
+    margin-right: 5;
+    background-color: rgba(245, 246, 250,1.0);
+    align-self: center;
+    align-items: center;
+    justify-content: space-around;
+}
