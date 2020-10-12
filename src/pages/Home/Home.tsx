@@ -1,71 +1,70 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './Home.css';
-import styles from './Home.styles'
 import { MySlider, ProductCard } from '../../components'
-import { products } from '../../res/data'
 
 interface Props {
 
 }
+
+interface ProductObject {
+    id: Number,
+    name: String,
+    description: String,
+    available: Number,
+    product_images?: any
+}
+
 const Home: React.FC<Props> = (props) => {
 
-    // const handleScroll = () => {
-    //     alert('Hello')
-    // }
+    const [loading, setLoading] = useState(false)
+    const [products, setProducts] = useState<ProductObject[]>([])
+
+    const fetchItems = () => {
+        setLoading(true)
+        let BASE_URL = globalThis.BASE_URL
+        let url = `${BASE_URL}/products`;
+        fetch(url, { method: 'GET' })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                let data = responseJson;
+                setProducts(data)
+                console.log(data)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => setLoading(false));
+    };
 
     useEffect(() => {
-        window.onscroll = function () {
-            if (window.pageYOffset === 1) {
-                console.log('Scrolling')
-            }
-        };
+        fetchItems()
         return () => {
 
         }
     }, [])
 
     return (
-        <div style={styles.container}>
-            <div style={styles.mainView1}>
-                <div style={styles.view1}>
-                    <span style={styles.titleText}>GET YOURS</span> <br />
-                    <h1 style={styles.largeText}>The Leader In Soaps</h1>
-                    <h1 style={styles.largeText}>And Stitches.</h1><br />
-                    <span style={styles.smallText}>Here you will find lots of products that</span>
-                    <span style={styles.smallText}>match your taste and that are also good for health purposes.</span>
-                    <span style={styles.smallText}>Trust us as we trust God to give you the best.</span>
+        <div className='mainContainer'>
+            <div className='mainView1'>
+                <div className='view1'>
+                    <span className='titleText'>GET YOURS</span> <br />
+                    <h1 className='largeText'>The Leader In Soaps</h1>
+                    <h1 className='largeText'>And Stitches.</h1><br />
+                    <span className='smallText'>Here you will find lots of products that</span>
+                    <span className='smallText'>match your taste and that are also good for health purposes.</span>
+                    <span className='smallText'>Trust us as we trust God to give you the best.</span>
                     <div style={{ marginTop: 20 }} className='orderNowBtn'>
                         <span className='orderNowText' style={{ fontSize: 14, fontWeight: 'bold' }}>ORDER NOW</span>
                     </div>
                 </div>
-                <div style={styles.view2}>
-                    <MySlider
-                        auto={2000}
-                        hasBullets
-                    >
-                        <img
-                            src="https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1010270&recipeId=728"
-                            alt="Third slide"
-                            style={{ width: '100%', height: '360px' }}
-                        />
-                        <img
-                            src="https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1010270&recipeId=728"
-                            alt="Third slide"
-                            style={{ width: '100%', height: '360px' }}
-                        />
-                        <img
-                            src="https://richmedia.ca-richimage.com/ImageDelivery/imageService?profileId=12026540&id=1010270&recipeId=728"
-                            alt="Third slide"
-                            style={{ width: '100%', height: '360px' }}
-                        />
-                    </MySlider>
+                <div className='view2'>
                 </div>
             </div>
-            <div style={styles.mainView2}>
-                {products.map(product=>(
+            <div className='mainView2'>
+                {products.map(product => (
                     <ProductCard
-                        key={product.id}
+                        product_images={product.product_images}
                         name={product.name}
                         description={product.description}
                         available={product.available}
