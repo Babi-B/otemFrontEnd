@@ -1,0 +1,25 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  flex: content;
+  /* background-color: blue; */
+  height: 85vh;
+  padding-top: 20px;
+  align-items: center;
+}
+.imagesDiv {
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  height: 50%;
+  align-self: center;
+  justify-content: space-around;
+  /* background-color: red; */
+  padding: 10px;
+}
+
+.image{
+    width: 30%;
+    height: 98%;
+    align-self: center;
+}

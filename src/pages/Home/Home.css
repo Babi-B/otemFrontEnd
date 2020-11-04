@@ -1,7 +1,7 @@
 .mainContainer{
     display: flex;
     flex-direction: column;
-    background-color: tomato;
+    /* background-color: tomato; */
 }
 .mainView1 {
     display: flex;

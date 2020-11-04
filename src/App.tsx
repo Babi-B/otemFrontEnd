@@ -7,7 +7,7 @@ import { base_url } from './config.json'
 
 globalThis.BASE_URL = base_url;
 
-const App = () => {
+const App: React.FC = (): JSX.Element => {
 
   const [mainPage, setMainPage] = useState('welcome')
 

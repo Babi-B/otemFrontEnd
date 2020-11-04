@@ -68,6 +68,7 @@ const Home: React.FC<Props> = (props) => {
                         name={product.name}
                         description={product.description}
                         available={product.available}
+                        itemForNextPage={product}
                     />
                 ))}
             </div>

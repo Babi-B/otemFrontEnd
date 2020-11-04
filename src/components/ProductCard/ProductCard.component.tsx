@@ -1,20 +1,22 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import './ProductCard.css'
 import { MySlider } from '../'
+import { Link } from 'react-router-dom'
 
 interface Props {
     name: String,
     description: String,
     available: Number,
-    product_images: Array<ProductImageObject>
+    product_images: Array<ProductImageObject>,
+    itemForNextPage: any
 }
 
 interface ProductImageObject {
     url: String
 }
 
-const ProductCard: React.FC<Props> = ({ name, description, available, product_images }) => {
+const ProductCard: React.FC<Props> = ({ name, description, available, product_images, itemForNextPage }) => {
     return (
         <Card className="productCard">
             <div style={{ width: '100%', height: '50%' }}>
@@ -37,7 +39,9 @@ const ProductCard: React.FC<Props> = ({ name, description, available, product_im
                 <Card.Text>
                     {description}
                 </Card.Text>
-                <button className='addToCartBtn'>Add to cart</button>
+                <Link to={{ pathname: '/productDetails', state: itemForNextPage }} >
+                    <button className='addToCartBtn'>Add to cart</button>
+                </Link>
                 <span className='availableText'>{available === 1 ? ' 😃 Available' : ' 😔 Not available'}</span>
             </Card.Body>
         </Card>

@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { Navigationbar } from '../components'
-import { Home } from '../pages'
+import { Home, ProductDetails } from '../pages'
 
 const Navigation = () => {
     return (
@@ -10,6 +10,7 @@ const Navigation = () => {
             <Navigationbar />
             <Switch>
                 <Route exact path='/' component={Home} />
+                <Route path='/productDetails' component={ProductDetails} />
             </Switch>
         </Router>
     )
