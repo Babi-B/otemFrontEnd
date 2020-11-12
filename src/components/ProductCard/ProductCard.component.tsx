@@ -30,6 +30,7 @@ const ProductCard: React.FC<Props> = ({ name, description, available, product_im
                             src={`${product_image.url}`}
                             alt="Third slide"
                             className='image'
+                            style={{ width: '100%' }}
                         />
                     ))}
                 </MySlider>
